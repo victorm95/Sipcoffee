@@ -1,0 +1,13 @@
+extends layout
+
+block title
+	title Error
+
+block content
+	section.container
+		header
+			h1 Ocurrio un error
+
+		article.well.well-lg
+			p= error
+			a(href="/") Ir al inicio

@@ -1,0 +1,24 @@
+extends ../layout
+
+block title
+	title	Instalaci&oacute;n de Sipcoffee
+
+block content
+	section.container
+		header
+			h1 Bienvenido al proceso de instalaci&oacute;n de Sipcoffee
+
+		article
+			p Para empezar a usar Sipcoffee debe configurar las medidas del terreno.
+
+		article.well.well-lg
+			form(action="/install/land", method="POST")
+				div.form-group
+					label(for="name") Nombre del Terreno
+					input#name.form-control(name="name", type="text", placeholder="Nombre del Terreno", required)
+				div.form-group
+					label(for="area") Area del Terreno (Mt<sup>2</sup>)
+					input#name.form-control(name="area", type="number", placeholder="Area del Terreno", required)
+				div.form-group
+					input.btn.btn-success(type="submit", value="Guardar")
+					input.btn.btn-danger(type="reset", value="Limpiar")
