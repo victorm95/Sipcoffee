@@ -20,5 +20,50 @@ block content
 					label(for="area") Area del Terreno (Mt<sup>2</sup>)
 					input#name.form-control(name="area", type="number", placeholder="Area del Terreno", required)
 				div.form-group
+					label(for="blocks") N&uacute;mero de bloques
+					input#blocks.form-control(name="blocks", type="number", placeholder="Numero de bloques", required)
+				div#form-blocks
+				div.form-group
 					input.btn.btn-success(type="submit", value="Guardar")
 					input.btn.btn-danger(type="reset", value="Limpiar")
+
+	script
+		:coffee
+			formBlocks = document.querySelector '#form-blocks'
+			blocks = document.querySelector '#blocks'
+			blocks.addEventListener 'change', (e) -> 
+				formBlocks.innerHTML = ''
+				for i in [1..parseInt(blocks.value)]
+					div = document.createElement 'div'
+					div.className = 'form-group'
+
+					nameLabel = document.createElement 'label'
+					nameLabel.setAttribute 'for', "block#{i}"
+					nameLabel.appendChild document.createTextNode "Nombre del Bloque #{i}"
+
+					nameInput = document.createElement 'input'
+					nameInput.className = 'form-control'
+					nameInput.id = "block#{i}"
+					nameInput.name = 'blockName'
+					nameInput.placeholder = "Nombre del Bloque #{i}"
+					nameInput.required = true
+					nameInput.type = 'text'
+
+					areaLabel = document.createElement 'label'
+					areaLabel.setAttribute 'for', "area#{i}"
+					areaLabel.appendChild document.createTextNode "area del Bloque #{i}"
+
+					areaInput = document.createElement 'input'
+					areaInput.className = 'form-control'
+					areaInput.id = "area#{i}"
+					areaInput.name = 'blockArea'
+					areaInput.placeholder = "Area del Bloque #{i}"
+					areaInput.required = true
+					areaInput.type = 'number'
+
+					div.appendChild nameLabel
+					div.appendChild nameInput
+					div.appendChild areaLabel
+					div.appendChild areaInput
+					formBlocks.appendChild div
+			, false
