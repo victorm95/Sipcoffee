@@ -1,0 +1,17 @@
+extends ../layout
+
+block title
+	title Lista de productos
+
+block content
+	section.container
+		header
+			h1 Productos
+
+		article
+			a(href="/products/new") Nueva producto
+
+			ul
+				each product in products
+					li
+						a(href="/products/"+post._id)= post.title

@@ -1,0 +1,17 @@
+extends ../layout
+
+block title
+	title Lista de siembras
+
+block content
+	section.container
+		header
+			h1 Siembras
+
+		article
+			a(href="/sowings/new") Nueva siembra
+
+			ul
+				each sowing in sowings
+					li
+						a(href="/sowings/"+post._id)= post.title

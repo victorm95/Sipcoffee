@@ -1,0 +1,17 @@
+extends ../layout
+
+block title
+	title Lista de cosechas
+
+block content
+	section.container
+		header
+			h1 Cosechas
+
+		article
+			a(href="/entries/new") Nueva cosecha
+
+			ul
+				each harvest in harvests
+					li
+						a(href="/harvests/"+post._id)= post.title
