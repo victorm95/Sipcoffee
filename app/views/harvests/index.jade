@@ -6,12 +6,20 @@ block title
 block content
 	section.container
 		header
-			h1 Cosechas
+			h3 Cosechas
+		div
+			a(href="/harvests/new") Registrar
 
+		hr
 		article
-			a(href="/entries/new") Nueva cosecha
-
-			ul
-				each harvest in harvests
-					li
-						a(href="/harvests/"+post._id)= post.title
+			table.table.table-striped
+				tr.info
+					th Cantidad
+					th Parcela
+					th Usuario
+					th Fecha
+				tr
+					td
+					td
+					td
+					td
