@@ -1,0 +1,25 @@
+extends ../layout
+
+block title
+	title Cosecha
+
+block content
+	section.container
+		header
+			h3 Registro de cosecha
+		div
+			a(href="/harvests") Atras
+		hr
+		article.well.well-lg
+			form(name="formCosecha", method="POST")
+				div.form-group
+					label(for="cantidad") Cantidad Cosecha
+					input.form-control#cantidad(type="text", name="cantidad")
+				div.form-group
+					label(for="parcela") Parcela
+					select.form-control#parcela(name="parcela")
+				div.form-group
+					label(for="Usuario") Usuario
+					select.form-control#usuario(name="usuario")
+				input.btn.btn-success#guardar(type="submit", value="Guardar")
+

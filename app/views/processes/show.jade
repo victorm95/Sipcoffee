@@ -1,0 +1,30 @@
+extends ../layout
+
+block title
+	title Procesos
+
+block content
+	section.container
+		header
+			h1 Registro de procesos
+		div
+			a(href="/processes/"+post._id+'/edit') Editar
+			span  | 
+			a(href="/processes/"+post._id+'/delete') Eliminar
+			span  | 
+			a(href="/processes") Atras
+		hr
+		article.well.well-lg
+			div.page-header
+				h3 Procesos
+			form(name="formProceso")
+				div.form-group
+					label(name="nombre") Nombre
+					input.form-control#nombre(type="text", name="nombre")
+				input.btn.btn-success#guardar(value="Guardar")
+		article
+			table.table.table-striped
+				tr.info
+					th Nombre
+				tr
+					td

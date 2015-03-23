@@ -1,0 +1,17 @@
+extends ../layout
+
+block title
+	title Lista de entradas
+
+block content
+	section.container
+		header
+			h1 Entradas
+
+		article
+			a(href="/entries/new") Nueva entrada
+
+			ul
+				each entry in entries
+					li
+						a(href="/entries/"+post._id)= post.title

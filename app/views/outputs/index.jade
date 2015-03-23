@@ -1,0 +1,17 @@
+extends ../layout
+
+block title
+	title Lista de salidas
+
+block content
+	section.container
+		header
+			h1 Salidas
+
+		article
+			a(href="/outputs/new") Nueva salida
+
+			ul
+				each output in outputs
+					li
+						a(href="/outputs/"+post._id)= post.title

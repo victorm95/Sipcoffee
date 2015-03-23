@@ -1,0 +1,17 @@
+extends ../layout
+
+block title
+	title Lista de cafetos
+
+block content
+	section.container
+		header
+			h1 Cafeto
+
+		article
+			a(href="/seeds/new") Nuevo cafeto
+
+			ul
+				each seed in seeds
+					li
+						a(href="/seeds/"+post._id)= post.title

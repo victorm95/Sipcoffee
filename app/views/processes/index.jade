@@ -1,0 +1,17 @@
+extends ../layout
+
+block title
+	title Lista de procesos
+
+block content
+	section.container
+		header
+			h1 Procesos
+
+		article
+			a(href="/processes/new") Nueva proceso
+
+			ul
+				each process in processes
+					li
+						a(href="/processes/"+post._id)= post.title

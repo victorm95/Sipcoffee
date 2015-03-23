@@ -3,8 +3,7 @@ land = { // Terreno
 	area: 'float',
 	blocks: [{ // Bloques
 		name: 'string',
-		area: 'float',
-		plots: 'Array[ObjectId]' // Arreglo de Parcelas
+		area: 'float'
 	}]
 };
 
@@ -40,4 +39,33 @@ seeds = { // Cafetos
 	socaTime: 'integer',
 	supplier: 'string',
 	harves: 'integer'
+};
+
+employees = { // Empleados
+	name: 'string',
+	cedula: 'int',
+	telefono: 'int', 
+	celular: 'int'
+};
+
+io = { // Empleados
+	inventory_id: 'ObjectId'
+	amount: 'string',
+	date: 'date',
+	type: 'in-out'
+};
+
+inventory = { // Empleados
+	name: 'string',
+	amount: 'string',
+	unit: 'int' //gramos, litros
+};
+
+job = { // Empleados
+	user_id: 'ObjectId',
+	type: 'string', //siembra, cosecha, fumigacion
+	time: 'int',
+	date: 'date', //gramos, litros
+	cost: 'float',
+	io_id: 'Array[ObjectId]'
 };
