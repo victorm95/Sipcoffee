@@ -1,5 +1,6 @@
 var express = require('express');
 var routes = express.Router();
+var db = require('../../conf/db');
 
 routes.get('/install', function(req, res) {
 	res.render('install/index');
@@ -18,26 +19,29 @@ routes.get('/install', function(req, res) {
 		var block = {
 			name: req.body.blockName[i],
 			area: parseFloat(req.body.blockArea[i]),
-			plots: []
 		};
 		land.blocks.push(block);
 	}
 
 	if(blocksArea <= land.area) {
-		for(i=0; i<parseInt(req.body.blocks); i++) {
-			var plotsNum = parseInt(req.body.blockPlots[i]);
-			var plotArea = parseFloat(req.body.blockArea[i]) / parseFloat(req.body.blockPlots[i]);
+		db.land.insert(land, function(error, data) {
+			for(i=0; i<parseInt(req.body.blocks); i++) {
+				var plotsNum = parseInt(req.body.blockPlots[i]);
+				var plotArea = parseFloat(req.body.blockArea[i]) / parseFloat(req.body.blockPlots[i]);
 
-			for(j=1; j<=plotsNum; j++) {
-				var plot = {
-					name: 'Parcela '+j,
-					area: plotArea
-				};
-				land.blocks[i].plots.push(plot);
+				var plots = [];
+				for(j=1; j<=plotsNum; j++) {
+					var plot = {
+						name: 'Parcela '+j,
+						area: plotArea,
+						block_id: i
+					};
+					plots.push(plot);
+				}
+				db.plots.insert(plots, function(error, data) { });
 			}
-		}
-
-		res.json(land);
+			res.redirect('/');
+		});
 	} else {
 		res.send('Error, el area de los bloques exede el area el terreno.');
 	}
