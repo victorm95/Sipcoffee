@@ -1,0 +1,30 @@
+extends ../layout
+
+block title
+	title Productos
+
+block content
+	section.container
+		header
+			h1 Registro de productos
+		div
+			a(href="/products/"+post._id+'/edit') Editar
+			span  | 
+			a(href="/products/"+post._id+'/delete') Eliminar
+			span  | 
+			a(href="/products") Atras
+		hr
+		article.well.well-lg
+			div.page-header
+				h3 Productos
+			form(name="formProducto")
+				div.form-group
+					label(name="nombre") Nombre
+					input.form-control#nombre(type="text", name="nombre")
+				input.btn.btn-success#guardar(value="Guardar")
+		article
+			table.table.table-striped
+				tr.info
+					th Nombre
+				tr
+					td

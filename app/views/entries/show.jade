@@ -1,0 +1,51 @@
+extends ../layout
+
+block title
+	title Entradas
+
+block content
+	section.container
+		header
+			h1 Registro de entradas
+		div
+			a(href="/entries/"+post._id+'/edit') Editar
+			span  | 
+			a(href="/entries/"+post._id+'/delete') Eliminar
+			span  | 
+			a(href="/entries") Atras
+		hr
+		article.well.well-lg
+			div.page-header
+				h3 Entradas
+			form(name="formEntradas", method="POST")
+				div.form-group
+					label(for="cantidad") Cantidad
+					input.form-control#cantidad(type="text", name="cantidad", placeholder="Cantidad")
+				div.form-group
+					label(for="valor") Valor
+					div.input-group
+						input.form-control#valor(type="text", name="valor", placeholder="Valor")
+						span.input-group-addon $
+				div.form-group
+					label(for="producto") Producto
+					select.form-control#producto(name="producto")
+				div.form-group
+					label(for="comentario") Comentario
+					textarea.form-control#comentario(name="comentario", row="3")
+				input.btn.btn-success#guardar(value="Guardar")
+				button.btn.btn-success Editar
+				button.btn.btn-success Elimnar
+		article
+			table.table.table-striped
+				tr.info
+					th Cantidad
+					th Valor
+					th Producto
+					th Fecha
+					th Comentario
+				tr
+					td
+					td
+					td
+					td
+					td

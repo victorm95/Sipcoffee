@@ -1,0 +1,49 @@
+extends ../layout
+
+block title
+	title Siembras
+
+block content
+	section.container
+		header
+			h1 Registro de siembra
+		div
+			a(href="/sowings/"+post._id+'/edit') Editar
+			span  | 
+			a(href="/sowings/"+post._id+'/delete') Eliminar
+			span  | 
+			a(href="/sowings") Atras
+		hr
+		article.well.well-lg
+			div.page-header
+				h3 Siembra
+			form(name="formSiembra", method="POST")
+				div.form-group
+					label(for="Cantidad") Cantidad Sembrada
+					input.form-control#cantidad(type="text", name="Cantidad", placeholder="Cantidad")
+				div.form-group
+					label(for="cafeto") Cafeto
+					select.form-control#cafeto(name="cafeto")
+				div.form-group
+					label(for="parcela") Parcela
+					select.form-control#parcela(name="parcela")
+				div.form-group
+					label(for="Usuario")
+					select.form-control#usuario(name="usuario")
+				input.btn.btn-success#guardar(type="submit", value="Guardar")
+				button.btn.btn-success Editar
+				button.btn.btn-success Elimnar
+		article
+			table.table.table-striped
+				tr.info
+					th Cantidad
+					th Cafeto
+					th Parcela
+					th Usuario
+					th Fecha
+				tr
+					td
+					td
+					td
+					td
+					td
