@@ -6,5 +6,9 @@ module.exports = {
 	plots: new Datastore({filename: 'db/plots.db', autoload: true}), // Parcelas
 	harvests: new Datastore({filename: 'db/harvests.db', autoload: true}), // Cosechas
 	sowings: new Datastore({filename: 'db/sowings.db', autoload: true}), // Siembras
-	seeds: new Datastore({filename: 'db/seeds.db', autoload: true}) // Cafetos (Semillas)
+	seeds: new Datastore({filename: 'db/seeds.db', autoload: true}), // Cafetos (Semillas)
+	processes: new Datastore({filename: 'db/processes', autoload: true}), // Procesos
+	entries: new Datastore({filename: 'db/entries', autoload: true}), // Entradas
+	outputs: new Datastore({filename: 'db/outputs', autoload: true}), // Salidas
+	products: new Datastore({filename: 'db/products', autoload: true}) // Productos	
 };
