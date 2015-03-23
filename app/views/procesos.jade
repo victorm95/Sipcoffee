@@ -1,0 +1,17 @@
+extends ../layout
+
+article.well.well-lg
+	article	
+		div.page-header
+			h3 Procesos
+		form(name="formProceso")
+			div.form-group
+				label(name="nombre") Nombre
+				input.form-control#nombre(type="text", name="nombre")
+			input.btn.btn-success#guardar(value="Guardar")
+	article
+		table.table.table-striped
+			tr.info
+				th Nombre
+			tr
+				td

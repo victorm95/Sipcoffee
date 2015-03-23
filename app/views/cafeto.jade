@@ -1,0 +1,69 @@
+extends ../layout
+
+article.well.wel-lg
+	article
+		div.page-header
+			h3 Cafeto
+		form(name="formCafeto", method="POST")
+			div.form-group
+				label(for="nombre") Nombre
+				input.form-control#nombre(type="text", name="nombre", placeholder="Nombre de a variedad")
+			div.form-group
+				label(for="abono") Cantidad Abono
+				input.form-control#abono(type="text", name="abono", placeholder="Nombre abono")
+			div.form-group
+				label(for="pesticida") Cantidad Pesticida
+				input.form-control#pesticida(type="text", name="pesticida", placeholder="Cantidad")				
+			div.form-group
+				label(for="distSurco") Distancia Surco
+				input.form-control#distSurco(type="text", name="distSurco", placeholder="Distancia")				
+			div.form-group
+				label(for="distCafeto") Distancia Cafeto
+				input.form-control#distCafeto(type="text", name="distCafeto", placeholder="Distancia")				
+			div.form-group
+				label(for="tiempoSemillero") Tiempo Semillero
+				div.input-group
+					input.form-control#tiempoSemillero(type="text", name="tiempoSemillero", placeholder="Cantidad")				
+					span.input-group-addon Dias
+			div.form-group
+				label(for="tiempoAlmacigo") Tiempo Almacigo
+				div.input-group
+					input.form-control#tiempoAlmacigo(type="text", name="tiempoAlmacigo", placeholder="Cantidad")				
+					span.input-group-addon Dias
+			div.form-group
+				label(for="tiempoGraneo") Tiempo Graneo
+				div.input-group
+					input.form-control#tiempoGraneo(type="text", name="tiempoGraneo", placeholder="Cantidad")				
+					span.input-group-addon Dias	
+			div.form-group
+				label(for="tiempoSoca") Tiempo Soca
+				div.input-group
+					input.form-control#tiempoSoca(type="text", name="tiempoSoca", placeholder="Cantidad")				
+					span.input-group-addon Dias	
+			div.form-group
+				label(for="primeraCosecha") Primera cosecha
+				div.input-group
+					input.form-control#primeraCosecha(type="text", name="primeraCosecha", placeholder="Cantidad")				
+					span.input-group-addon Dias		
+			div.form-group
+				label(for="proveedor") Proveedot
+				input.form-control#proveedor(type="text", name="proveedor", placeholder="Distancia")				
+			input.btn.btn-success#guardar(type="submit", value="Guardar")
+			button.btn.btn-success Editar
+			button.btn.btn-success Eliminar
+	article
+		table.table.table-striped
+			tr.info
+				th Nombre
+				th Cant. Abono
+				th Cant. Pesticida
+				th Dist. Surco
+				th Dist. Cafeto
+				th Tiempo Semillero
+				th Tiempo Almacigo
+				th Tiempo Graneo
+				th Tiempo Soca
+				th Primera Cosecha
+				th Proveedor
+				th Fecha
+			tr
