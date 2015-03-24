@@ -43,29 +43,29 @@ seeds = { // Cafetos
 
 employees = { // Empleados
 	name: 'string',
-	cedula: 'int',
-	telefono: 'int', 
-	celular: 'int'
+	cc: 'int',
+	telephone: 'int', 
+	mobile: 'int'
 };
 
-io = { // Empleados
+io = { // Entrada y salidas
 	inventory_id: 'ObjectId'
 	amount: 'string',
 	date: 'date',
-	type: 'in-out'
+	type: 'string'
 };
 
-inventory = { // Empleados
+inventory = { // Inventario
 	name: 'string',
 	amount: 'string',
 	unit: 'int' //gramos, litros
 };
 
-job = { // Empleados
+job = { // Trabajos
 	user_id: 'ObjectId',
 	type: 'string', //siembra, cosecha, fumigacion
 	time: 'int',
-	date: 'date', //gramos, litros
+	date: 'date', 
 	cost: 'float',
 	io_id: 'Array[ObjectId]'
 };

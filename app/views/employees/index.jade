@@ -1,0 +1,30 @@
+extends ../layout
+
+block title
+	title Lista de empleados
+
+block content
+	section.container
+		header
+			h3 Empleados
+		div
+			a(href="/employees/new") Registrar
+		hr
+		article
+			table.table.table-striped
+				tr.info
+					th Cédula
+					th Nombre
+					th Teléfono
+					th Celular
+				if employees	
+					each employee in employees
+						tr
+							td= employee.cc
+							td= employee.name
+							td=  employee.telephone
+							td= employee.mobile
+							td
+								a(href="/employees/"+employee._id+"/edit") Editar
+							td
+								a(href="/employees/"+employee._id+"/delete") Eliminar  
