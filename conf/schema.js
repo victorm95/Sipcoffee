@@ -48,24 +48,24 @@ employees = { // Empleados
 	celular: 'int'
 };
 
-io = { // Empleados
+io = { // Entradas y Salidas
 	inventory_id: 'ObjectId'
 	amount: 'string',
 	date: 'date',
 	type: 'in-out'
 };
 
-inventory = { // Empleados
+inventory = { // Inventario
 	name: 'string',
 	amount: 'string',
-	unit: 'int' //gramos, litros
+	unit: 'int' // Gramos, Litros
 };
 
-job = { // Empleados
+job = { // Trabajos
 	user_id: 'ObjectId',
-	type: 'string', //siembra, cosecha, fumigacion
+	type: 'string', // Siembra, Cosecha, Fumigacion
 	time: 'int',
-	date: 'date', //gramos, litros
+	date: 'date',
 	cost: 'float',
 	io_id: 'Array[ObjectId]'
 };

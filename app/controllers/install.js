@@ -38,7 +38,7 @@ routes.get('/install', function(req, res) {
 					};
 					plots.push(plot);
 				}
-				db.plots.insert(plots, function(error, data) { });
+				db.plots.insert(plots);
 			}
 			res.redirect('/');
 		});

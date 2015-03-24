@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+	section.container
+		header
+			h2= block.name
+			div: a(href="/land") Atras
+
+		article
+			header
+				h3 #{block.plots.length} Parcelas
+
+			table.table.table-striped
+				tr.info
+					th Nombre de parcela
+					th Area de parcela
+					th Administrar
+				each plot in block.plots
+					tr
+						td= plot.name
+						td #{plot.area} Mts<sup>2</sup>
+						td
+							a.btn.btn-default(href='#') Ver
+							a.btn.btn-default(href='#') Editar
+							a.btn.btn-default(href='#') Eliminar

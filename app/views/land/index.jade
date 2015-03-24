@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+	section.container
+		header
+			h1= land.name 
+				small  #{land.area} Mts<sup>2</sup>
+
+		article
+			header
+				h3 Bloques
+			table.table.table-striped
+				tr.info
+					th Nombre del bloque
+					th Area del bloque
+					th Administrar
+				each block, index in land.blocks
+					tr
+						td= block.name
+						td #{block.area} Mts<sup>2</sup>
+						td
+							a.btn.btn-default(href="/blocks/#{index}") Ver
+							a.btn.btn-default(href="/blocks/#{index}/edit") Editar
+							a.btn.btn-default(href="/blocks/#{index}/destroy") Eliminar

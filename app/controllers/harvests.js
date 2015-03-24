@@ -42,7 +42,7 @@ routes.get('/harvests', function(req, res) {
 
 .post('/harvests/:id/edit', function(req, res) {
 	db.harvests.findOne({_id: req.params.id}, function(error, data) {
-		harvests.update({_id: req.params.id}, {$set: req.body}, {}, function(error, data) {
+		db.harvests.update({_id: req.params.id}, {$set: req.body}, {}, function(error, num) {
 			if(error) {
 				res.send('Error');
 			} else {
