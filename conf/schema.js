@@ -43,16 +43,16 @@ seeds = { // Cafetos
 
 employees = { // Empleados
 	name: 'string',
-	cedula: 'int',
-	telefono: 'int', 
-	celular: 'int'
+	cc: 'int',
+	telephone: 'int', 
+	mobile: 'int'
 };
 
-io = { // Entradas y Salidas
+io = { // Entrada y salidas
 	inventory_id: 'ObjectId'
 	amount: 'string',
 	date: 'date',
-	type: 'in-out'
+	type: 'string'
 };
 
 inventory = { // Inventario
@@ -65,7 +65,7 @@ job = { // Trabajos
 	user_id: 'ObjectId',
 	type: 'string', // Siembra, Cosecha, Fumigacion
 	time: 'int',
-	date: 'date',
+	date: 'date', 
 	cost: 'float',
 	io_id: 'Array[ObjectId]'
 };
