@@ -17,14 +17,16 @@ block content
 					th Nombre
 					th Teléfono
 					th Celular
+					th Editar
+					th Eliminar
 				if employees	
 					each employee in employees
 						tr
 							td= employee.cc
 							td= employee.name
-							td=  employee.telephone
+							td= employee.telephone
 							td= employee.mobile
 							td
-								a(href="/employees/"+employee._id+"/edit") Editar
+								a.btn.btn-default(href="/employees/"+employee._id+"/edit"): span.glyphicon.glyphicon-pencil
 							td
-								a(href="/employees/"+employee._id+"/delete") Eliminar  
+								a.btn.btn-default(href="/employees/"+employee._id+"/delete"): span.glyphicon.glyphicon-trash 

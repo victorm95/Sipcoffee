@@ -6,12 +6,42 @@ block title
 block content
 	section.container
 		header
-			h1 Cafeto
-
+			h3 Cafeto
+		div
+			a(href="/seeds/new") Registrar
+		hr
 		article
-			a(href="/seeds/new") Nuevo cafeto
-
-			ul
+			table.table.table-striped
+				tr.info
+					th Nombre
+					th Abono
+					th Pesticida
+					th Surco
+					th Cafeto
+					th Semillero
+					th Almacigo
+					th Graneo
+					th Soca
+					th Cosecha
+					th Proveedor
+					th Editar
+					th Eliminar					
 				each seed in seeds
-					li
-						a(href="/seeds/"+post._id)= post.title
+					tr
+						td= seed.name
+						td= seed.fertilizerAmount
+						td= seed.pesticideAmount
+						td= seed.grooveDistance
+						td= seed.seedDistance
+						td= seed.seedbedTime
+						td= seed.masticTime
+						td= seed.grainingTime
+						td= seed.socaTime
+						td= seed.harvest
+						td= seed.supplier
+						td: a.btn.btn-default(href="/seeds/"+seed._id+"/edit"): span.glyphicon.glyphicon-pencil
+						td: a.btn.btn-default(href="/seeds/"+seed._id+"/delete"): span.glyphicon.glyphicon-trash
+
+							
+							
+							

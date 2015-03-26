@@ -1,0 +1,13 @@
+extends ../layout
+
+include form
+block content
+	section.container
+		header
+			h3 Editar cafeto
+		div
+			span.glyphicon.glyphicon-arrow-left 
+				a(href="/seeds") Atras
+		hr
+		article.well.wel-lg
+			+generate_form(seed)

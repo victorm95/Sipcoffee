@@ -1,7 +1,6 @@
 extends ../layout
 
-block title
-	title Registrar empleado
+include form
 
 block content
 	section.container
@@ -11,17 +10,4 @@ block content
 			a(href="/employees") Atras
 		hr
 		article.well.well-lg
-			form(name="formEmployee", method="POST")
-				div.form-group
-					label(for="name") Nombre
-					input.form-control#name(type="text", name="name", maxlength="30", required, autofocus)
-				div.form-group
-					label(for="cc") Cédula
-					input.form-control#cc(type="text", name="cc", required)
-				div.form-group
-					label(for="telephone") Teléfono
-					input.form-control#telephone(type="text", name="telephone", maxlength="7", pattern="[0-9]{7}", required)
-				div.form-group
-					label(for="mobile") Celular
-					input.form-control#mobile(type="text", maxlength="10", pattern="[0-9]{10}", title="Ingrese un número válido", name="mobile", required)
-				input.btn.btn-success#guardar(type="submit", value="Guardar")
+			+generate_form({})
