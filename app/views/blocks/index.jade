@@ -3,8 +3,10 @@ extends ../layout
 block content
 	section.container
 		header
-			h2= block.name
+			h3 #{block.name} <small>Mtrs<sup>2</sup></small>
 			div: a(href="/land") Atras
+
+		hr
 
 		article
 			header
@@ -14,12 +16,13 @@ block content
 				tr.info
 					th Nombre de parcela
 					th Area de parcela
-					th Administrar
+					th Ver
+					th Editar
+					th Eliminar
 				each plot in block.plots
 					tr
 						td= plot.name
 						td #{plot.area} Mts<sup>2</sup>
-						td
-							a.btn.btn-default(href='#') Ver
-							a.btn.btn-default(href='#') Editar
-							a.btn.btn-default(href='#') Eliminar
+						td: a.btn.btn-default(href='#'): span.glyphicon.glyphicon-eye-open 
+							td: a.btn.btn-default(href='/plots/#{plot._id}/edit'): span.glyphicon.glyphicon-pencil
+						td: a.btn.btn-default(href='#'): span.glyphicon.glyphicon-trash

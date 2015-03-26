@@ -13,12 +13,13 @@ block content
 				tr.info
 					th Nombre del bloque
 					th Area del bloque
-					th Administrar
-				each block, index in land.blocks
+					th Ver
+					th Editar
+					th Eliminar
+				each block in land.blocks
 					tr
 						td= block.name
 						td #{block.area} Mts<sup>2</sup>
-						td
-							a.btn.btn-default(href="/blocks/#{index}") Ver
-							a.btn.btn-default(href="/blocks/#{index}/edit") Editar
-							a.btn.btn-default(href="/blocks/#{index}/destroy") Eliminar
+						td: a.btn.btn-default(href="/blocks/#{block._id}"): span.glyphicon.glyphicon-eye-open
+						td: a.btn.btn-default(href="/blocks/#{block._id}/edit"): span.glyphicon.glyphicon-pencil
+						td: a.btn.btn-default(href="/blocks/#{block._id}/destroy"): span.glyphicon.glyphicon-trash

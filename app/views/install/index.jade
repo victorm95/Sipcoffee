@@ -15,13 +15,13 @@ block content
 			form(method="POST")
 				div.form-group
 					label(for="name") Nombre del Terreno
-					input#name.form-control(name="name", type="text", placeholder="Nombre del Terreno", required)
+					input#name.form-control(name="name", type="text", required)
 				div.form-group
 					label(for="area") Area del Terreno (Mt<sup>2</sup>)
-					input#name.form-control(name="area", type="number", placeholder="Area del Terreno", required)
+					input#name.form-control(name="area", type="number", required)
 				div.form-group
 					label(for="blocks") N&uacute;mero de bloques
-					input#blocks.form-control(name="blocks", type="number", placeholder="Numero de bloques", required)
+					input#blocks.form-control(name="blocks", type="number", required)
 				div.form-group
 					input.btn.btn-success(type="submit", value="Guardar")
 					input.btn.btn-danger(type="reset", value="Limpiar")

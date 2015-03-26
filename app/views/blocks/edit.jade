@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+	section.container
+		header
+			h3 Editar #{block.name}
+			div: a(href="/land") Atras
+
+		hr
+
+		article
+			form(method="POST")
+				div.form-group
+					label(for="name") Nombre
+					input#name.form-control(name="name", type="text", required, value=block.name)
+				div.form-group
+					label(for="area") Area
+					input#area.form-control(name="area", type="number", required, value=block.area)
+				div.form-group
+					input.btn.btn-success(type="submit", value="Guardar")
+					a.btn.btn-danger(href="/land") Cancelar

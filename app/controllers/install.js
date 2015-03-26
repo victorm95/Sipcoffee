@@ -17,6 +17,7 @@ routes.get('/install', function(req, res) {
 	for(i=0; i<parseInt(req.body.blocks); i++) {
 		blocksArea += parseFloat(req.body.blockArea[i]);
 		var block = {
+			_id: i,
 			name: req.body.blockName[i],
 			area: parseFloat(req.body.blockArea[i]),
 		};
@@ -32,7 +33,7 @@ routes.get('/install', function(req, res) {
 				var plots = [];
 				for(j=1; j<=plotsNum; j++) {
 					var plot = {
-						name: 'Parcela '+j,
+						name: 'Parcela '+ ( (j<10?'0'+j:j) ),
 						area: plotArea,
 						block_id: i
 					};

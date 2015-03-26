@@ -32,7 +32,6 @@ blocks.oninput = function(e) {
 		nameInput.className = 'form-control';
 		nameInput.id = 'blockName'+i;
 		nameInput.name = 'blockName';
-		nameInput.placeholder = nameLabel.textContent;
 		nameInput.required = true;
 
 		var areaLabel = document.createElement('label');
@@ -44,7 +43,6 @@ blocks.oninput = function(e) {
 		areaInput.className = 'form-control';
 		areaInput.id = 'blockArea'+i;
 		areaInput.name = 'blockArea';
-		areaInput.placeholder = areaLabel.textContent;
 		areaInput.required = true;
 
 		var plotsLabel = document.createElement('label');
@@ -56,7 +54,6 @@ blocks.oninput = function(e) {
 		plotsInput.className = 'form-control';
 		plotsInput.id = 'blockPlots'+i;
 		plotsInput.name = 'blockPlots';
-		plotsInput.placeholder = plotsLabel.textContent;
 		plotsInput.required = true;
 
 		divName.appendChild(nameLabel);
