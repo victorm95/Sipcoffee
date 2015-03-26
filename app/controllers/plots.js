@@ -2,7 +2,12 @@ var express = require('express');
 var routes = express.Router();
 var db = require('../../conf/db');
 
-routes.get('/plots/:id/edit', function(req, res) {
+routes.get('/plots/new', function(req, res) {
+	res.render('plots/new');
+})
+
+
+.get('/plots/:id/edit', function(req, res) {
 	db.plots.findOne({_id: req.params.id}, function(error, data) {
 		if(error) res.render('error', {error: error, page: req.originalUrl});
 		else res.render('plots/edit', {plot: data});
