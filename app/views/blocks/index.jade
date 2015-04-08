@@ -11,7 +11,7 @@ block content
 		article
 			header
 				h3 #{block.plots.length} Parcelas
-				div: a(href="/plots/new") Nueva parcela
+				div: a(href="/blocks/#{block._id}/plots/new") Nueva parcela
 
 			table.table.table-striped
 				tr.info

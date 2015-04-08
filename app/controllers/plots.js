@@ -2,8 +2,29 @@ var express = require('express');
 var routes = express.Router();
 var db = require('../../conf/db');
 
-routes.get('/plots/new', function(req, res) {
-	res.render('plots/new');
+routes.get('/blocks/:block_id/plots/new', function(req, res) {
+	res.render('plots/new', {plot: {block_id: parseInt(req.params.block_id)}});
+})
+.post('/blocks/:block_id/plots/new', function(req, res) {
+	var plot = req.body;
+	plot.block_id = parseInt(req.params.block_id);
+
+	db.land.findOne({}, function(error, land) {
+		var blockArea = land.blocks[plot.block_id].area;
+		
+		db.plots.find({block_id: plot.block_id}, function(error, plots) {
+			var plotsArea = plot.area;
+			for(i=0; i<plots.length; i++) plotsArea += plots[i].area;
+
+			if(plotsArea <= blockArea) {
+				db.plots.insert(plot, function(error, data){
+					res.redirect('/blocks/'+plot.block_id);
+				});
+			} else {
+				res.render('error', {error: 'El area de las parcelas es mayor al area del bloque.', page: req.originalUrl});
+			}
+		});
+	});
 })
 
 
