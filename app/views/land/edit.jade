@@ -1,6 +1,13 @@
 extends ../layout
 
+include form
+
 block content
 	section.container
 		header
-			h3 Editar #{}
+			h3 Editar #{land.name}
+
+		hr
+
+		article.well.well-lg
+			+generate_form(land)

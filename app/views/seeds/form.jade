@@ -8,39 +8,39 @@ mixin generate_form(seed)
 			input.form-control#abono(type="text", name="fertilizerAmount", value=seed.fertilizerAmount, required,  pattern="{0-9}[]")
 		div.form-group
 			label(for="pesticida") Cantidad Pesticida
-			input.form-control#pesticida(type="text", name="pesticideAmount", value=seed.pesticideAmount, required)				
+			input.form-control#pesticida(type="text", name="pesticideAmount", value=seed.pesticideAmount, required)
 		div.form-group
 			label(for="distSurco") Distancia Surco
-			input.form-control#distSurco(type="text", name="grooveDistance", value=seed.grooveDistance, required)				
+			input.form-control#distSurco(type="text", name="grooveDistance", value=seed.grooveDistance, required)
 		div.form-group
 			label(for="distCafeto") Distancia Cafeto
-			input.form-control#distCafeto(type="text", name="seedDistance", value=seed.seedDistance, required)				
+			input.form-control#distCafeto(type="text", name="seedDistance", value=seed.seedDistance, required)
 		div.form-group
 			label(for="tiempoSemillero") Tiempo Semillero
 			div.input-group
-				input.form-control#tiempoSemillero(type="text", name="seedbedTime", value=seed.seedbedTime, required)				
+				input.form-control#tiempoSemillero(type="text", name="seedbedTime", value=seed.seedbedTime, required)
 				span.input-group-addon Dias
 		div.form-group
 			label(for="tiempoAlmacigo") Tiempo Almacigo
 			div.input-group
-				input.form-control#tiempoAlmacigo(type="text", name="masticTime", value=seed.masticTime, required)				
+				input.form-control#tiempoAlmacigo(type="text", name="masticTime", value=seed.masticTime, required)
 				span.input-group-addon Dias
 		div.form-group
 			label(for="tiempoGraneo") Tiempo Graneo
 			div.input-group
-				input.form-control#tiempoGraneo(type="text", name="grainingTime", value=seed.grainingTime, required)				
+				input.form-control#tiempoGraneo(type="text", name="grainingTime", value=seed.grainingTime, required)
 				span.input-group-addon Dias	
 		div.form-group
 			label(for="tiempoSoca") Tiempo Soca
 			div.input-group
-				input.form-control#tiempoSoca(type="text", name="socaTime", value=seed.socaTime, required)				
+				input.form-control#tiempoSoca(type="text", name="socaTime", value=seed.socaTime, required)
 				span.input-group-addon Dias	
 		div.form-group
 			label(for="primeraCosecha") Primera cosecha
 			div.input-group
-				input.form-control#primeraCosecha(type="text", name="harvest", value=seed.harvest, required)				
+				input.form-control#primeraCosecha(type="text", name="harvest", value=seed.harvest, required)
 				span.input-group-addon Dias		
 		div.form-group
 			label(for="proveedor") Proveedor
-			input.form-control#proveedor(type="text", name="supplier", value=seed.supplier)				
+			input.form-control#proveedor(type="text", name="supplier", value=seed.supplier)
 		input.btn.btn-success#guardar(type="submit", value="Guardar")

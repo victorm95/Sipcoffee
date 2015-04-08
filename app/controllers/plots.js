@@ -38,6 +38,14 @@ routes.get('/plots/new', function(req, res) {
 	});
 })
 
+.get('/plots/:id/delete', function(req, res) {
+	db.plots.findOne({_id: req.params.id}, function(error, plot) {
+		db.plots.remove({_id: req.params.id}, function(error, num) {
+			if(!error) res.redirect('/blocks/'+plot.block_id);
+		});
+	});
+})
+
 ;
 
 module.exports = routes;

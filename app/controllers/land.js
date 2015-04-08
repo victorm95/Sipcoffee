@@ -14,7 +14,18 @@ routes.get('/land', function(req, res) {
 	});
 })
 .post('/land/edit', function(req, res) {
-	res.json(req.body);
+	db.land.findOne({}, function(error, land) {
+		var blocksArea = 0;
+		for(i=0; i<land.blocks.length; i++) blocksArea += land.blocks[i].area;
+
+		if(blocksArea <= parseFloat(req.body.area)) {
+			db.land.update({_id: land._id}, {$set: req.body}, {}, function(error, num) {
+				res.redirect('/land');
+			});
+		} else {
+			res.render('error', {error: 'El area del terreno es menor al area de los bloques.', page: req.originalUrl});
+		}
+	});
 })
 
 ;

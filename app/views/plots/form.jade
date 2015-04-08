@@ -8,4 +8,4 @@ mixin generate_form(plot)
 			input#area.form-control(name="area", type="number", required, value=plot.area)
 		div.form-group
 			input.btn.btn-success(type="submit", value="Guardar")
-			a.btn.btn-danger(href="/blocks/"+plot.block_id) Cancelar
+			a.btn.btn-danger(href="/blocks/#{plot.block_id}") Cancelar

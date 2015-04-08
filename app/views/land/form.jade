@@ -1,0 +1,10 @@
+mixin generate_form(land)
+	form(method="POST")
+		div.form-group
+			label(for="name") Nombre
+			input#name.form-control(name="name", type="text", required, value=land.name)
+		div.form-group
+			label(for="area") Area
+			input#area.form-control(name="area", type="number", required, value=land.area)
+		div
+			input.btn.btn-success(type="submit", value="Guardar")
