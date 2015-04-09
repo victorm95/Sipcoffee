@@ -1,0 +1,18 @@
+mixin generate_form(data)
+	form(method="POST")
+		div.form-group
+			label(for="name") Nombre
+			input#name.form-control(name="name", type="text", required, value=data.name)
+		div.form-group
+			label(for="area") Area
+			input#area.form-control(name="area", type="number", required, value=data.area)
+
+		if !data.name
+			div.form-group
+				label(for="plots") Numero de parcelas
+				input#plots.form-control(name="plots", type="number", required)
+
+
+		div
+			input.btn.btn-success(type="submit", value="Guardar")
+			a.btn.btn-danger(href="/land") Cancelar

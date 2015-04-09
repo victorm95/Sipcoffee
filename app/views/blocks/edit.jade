@@ -1,5 +1,7 @@
 extends ../layout
 
+include form
+
 block content
 	section.container
 		header
@@ -8,8 +10,9 @@ block content
 
 		hr
 
-		article
-			form(method="POST")
+		article.well.well-lg
+			+generate_form(block)
+			// form(method="POST")
 				div.form-group
 					label(for="name") Nombre
 					input#name.form-control(name="name", type="text", required, value=block.name)
