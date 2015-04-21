@@ -8,8 +8,19 @@ routes.get('/harvests', function(req, res) {
 	});
 })
 
-.get('/harvests/new', function(req, res) {
-	res.render('harvests/new');
+.get('/harvests/new', function(req, res) {	
+	var plots;
+	var employees;
+	
+	db.plots.find({}, function(error,data){
+		plots=data;
+		db.employees.find({}, function(error, data){
+			employees=data;
+			res.render('harvests/new',{plots:plots,employees:employees});
+		});
+	});
+	
+	
 })
 
 .post('/harvests/new', function(req, res) {
