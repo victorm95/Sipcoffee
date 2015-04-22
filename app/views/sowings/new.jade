@@ -1,0 +1,16 @@
+extends ../layout
+
+include form
+
+block content
+	section.container
+		header
+			h3 Registro de siembra
+		div
+			span.glyphicon.glyphicon-arrow-left 
+				a(href="/sowings") Atras
+		hr
+		article.well.wel-lg
+			+generate_form(sowings)
+
+

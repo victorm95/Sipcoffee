@@ -5,7 +5,7 @@ mixin generate_form(seed)
 			input.form-control#nombre(type="text", name="name", value=seed.name, required, maxlength="20")
 		div.form-group
 			label(for="abono") Cantidad Abono
-			input.form-control#abono(type="text", name="fertilizerAmount", value=seed.fertilizerAmount, required,  pattern="{0-9}[]")
+			input.form-control#abono(type="text", name="fertilizerAmount", value=seed.fertilizerAmount, required,  pattern="[0-9]")
 		div.form-group
 			label(for="pesticida") Cantidad Pesticida
 			input.form-control#pesticida(type="text", name="pesticideAmount", value=seed.pesticideAmount, required)
