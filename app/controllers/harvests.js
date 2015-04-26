@@ -2,34 +2,23 @@ var express = require('express');
 var routes = express.Router();
 var db = require('../../conf/db');
 
-routes.get('/harvests', function(req, res) {
-	db.harvests.find({}, function(error, data) {
-		res.render('harvests/index', {harvests: data});
+routes.get('/plots/:plot_id/harvest/new', function(req, res) {	
+	db.employees.find({}, function(error, data){
+		res.render('harvests/new',{employees: data});
 	});
 })
 
-.get('/harvests/new', function(req, res) {	
-	var plots;
-	var employees;
-	
-	db.plots.find({}, function(error,data){
-		plots=data;
-		db.employees.find({}, function(error, data){
-			employees=data;
-			res.render('harvests/new',{plots:plots,employees:employees});
-		});
-	});
-	
-	
-})
+.post('/plots/:plot_id/harvest/new', function(req, res) {
+	var harvest = req.body;
+	harvest.plot_id = req.params.plot_id;
+	harvest.date = now();
 
-.post('/harvests/new', function(req, res) {
-	db.harvests.insert(req.body, function(error, data) {
-		res.redirect('/harvest');
+	db.harvests.insert(harvest, function(error, data) {
+		res.redirect('/plots/'+req.params.plot_id);
 	});
 })
 
-.get('/harvests/:id', function(req, res) {
+/*.get('/harvests/:id', function(req, res) {
 	db.harvests.findOne({_id: req.params.id}, function(error, data) {
 		res.render('harvests/show', {harvest: data});
 	});
@@ -61,8 +50,13 @@ routes.get('/harvests', function(req, res) {
 			}
 		});
 	});
-})
+})*/
 
 ;
 
 module.exports = routes;
+
+function now() {
+	var date = new Date();
+	return date.getDate() + '/' + date.getMonth()+1 + '/' + date.getFullYear();
+}

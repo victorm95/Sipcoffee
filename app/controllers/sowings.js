@@ -2,25 +2,23 @@ var express = require('express');
 var routes = express.Router();
 var db = require('../../conf/db');
 
-routes.get('/sowings', function(req, res) {
-	db.sowings.find({}, function(error, data) {
-		res.render('sowings/index', {sowings: data});
+routes.get('/plots/:plot_id/sowing/new', function(req, res) {	
+	db.seeds.find({}, function(error, data){
+		res.render('sowings/new',{seeds: data, page: '/plots/'+req.params.plot_id});
 	});
 })
 
-.get('/sowings/new', function(req, res) {	
-	db.seeds.find({}, function(error,data){
-		res.render('sowings/new',{sowings:data});
-	});	
-})
+.post('/plots/:plot_id/sowing/new', function(req, res) {
+	var sowing = req.body;
+	sowing.plot_id = req.params.plot_id;
+	sowing.date = now();
 
-.post('/sowings/new', function(req, res) {
-	db.sowings.insert(req.body, function(error, data) {
-		res.redirect('/sowings');
+	db.sowings.insert(sowing, function(error, data) {
+		res.redirect('/plots/'+req.params.plot_id);
 	});
 })
 
-.get('/sowings/:id', function(req, res) {
+/*.get('/sowings/:id', function(req, res) {
 	db.sowings.findOne({_id: req.params.id}, function(error, data) {
 		res.render('sowings/show', {sowings: data});
 	});
@@ -52,8 +50,13 @@ routes.get('/sowings', function(req, res) {
 			}
 		});
 	});
-})
+})*/
 
 ;
 
 module.exports = routes;
+
+function now() {
+	var date = new Date();
+	return date.getDate() + '/' + date.getMonth()+1 + '/' + date.getFullYear();
+}

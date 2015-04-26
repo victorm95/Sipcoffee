@@ -24,6 +24,6 @@ block content
 					tr
 						td= plot.name
 						td #{plot.area} Mts<sup>2</sup>
-						td: a.btn.btn-default(href='#'): span.glyphicon.glyphicon-eye-open 
+						td: a.btn.btn-default(href='/plots/#{plot._id}'): span.glyphicon.glyphicon-eye-open 
 						td: a.btn.btn-default(href='/plots/#{plot._id}/edit'): span.glyphicon.glyphicon-pencil
 						td: a.btn.btn-default(href='/plots/#{plot._id}/delete'): span.glyphicon.glyphicon-trash

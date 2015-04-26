@@ -2,10 +2,10 @@ mixin generate_form(seeds)
 	form(name="formSiembra", method="POST")
 		div.form-group
 			label(for="cantidad") Cantidad Sembrada
-			input.form-control#cantidad(type="text", name="cantidad")
+			input.form-control#cantidad(type="text", name="amount")
 		div.form-group
 			label(for="cafeto") Cafeto
-			select.form-control#cafeto(name="cafeto")
-				each item in seeds
-					option(value=item._id) #{item.name}
+			select.form-control#cafeto(name="seed")
+				each seed in seeds
+					option(value=seed._id) #{seed.name}
 		input.btn.btn-success#guardar(type="submit", value="Guardar")

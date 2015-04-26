@@ -67,6 +67,30 @@ routes.get('/blocks/:block_id/plots/new', function(req, res) {
 	});
 })
 
+.get('/plots/:id', function(req, res) {
+	db.plots.findOne({_id: req.params.id}, function(error, plot) {
+		db.land.findOne({}, function(error, land) {
+			db.sowings.find({plot_id: plot._id}, function(error, sowings) {
+				var jobs = [];
+				for(i=0; i<sowings.length; i++) {
+					var job = sowings[i];
+					job.type = 'Siembra';
+					jobs.push(job);
+				}
+
+				db.harvests.find({plot_id: plot._id}, function(error, harvests) {
+					for(i=0; i<harvests.length; i++) {
+						var job = harvests[i];
+						job.type = 'Cosecha';
+						jobs.push(job);
+					}
+					res.render('plots/show', {plot: plot, block: land.blocks[plot.block_id], jobs: jobs});
+				});
+			});
+		});
+	});
+})
+
 ;
 
 module.exports = routes;

@@ -1,0 +1,31 @@
+extends ../layout
+
+block content
+	section.container
+		header
+			h3 #{plot.name} del #{block.name}
+
+		nav
+			a.btn.btn-default(href="/plots/#{plot._id}/sowing/new") Nueva Siembra
+			a.btn.btn-default(href="/plots/#{plot._id}/harvest/new") Nueva Cosecha
+
+		article
+			if jobs
+				h4 Historial
+					table.table.table-striped
+						tr.info
+							th Fecha
+							th Trabajo
+							th Trabajador
+							th Detalles
+
+						each job in jobs
+							tr
+								td #{job.date}
+								td #{job.type}
+								td usuario
+								td: a.btn.btn-default(href="#"): span.glyphicon.glyphicon-eye-open
+						
+			else 
+				div.well.well-lg
+					h4 No hay historial para mostrar.

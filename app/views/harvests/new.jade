@@ -6,11 +6,11 @@ block content
 	section.container
 		header
 			h3 Registro de cosecha
-		div
-			span.glyphicon.glyphicon-arrow-left 
-				a(href="/harvests") Atras
+			a.btn.btn-default(href="/harvests"): <span class="glyphicon glyphicon-arrow-left"></span> Atras 
+
 		hr
+
 		article.well.wel-lg
-			+generate_form(plots,employees)
+			+generate_form(employees)
 
 

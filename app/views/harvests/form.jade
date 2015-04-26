@@ -1,16 +1,11 @@
-mixin generate_form(plots,employees)
+mixin generate_form(employees)
 	form(name="formCosecha", method="POST")
 		div.form-group
 			label(for="cantidad") Cantidad Cosecha
-			input.form-control#cantidad(type="text", name="cantidad")
-		div.form-group
-			label(for="parcela") Parcela
-			select.form-control#parcela(name="parcela")
-				each item in plots
-					option(value=item._id) #{item.name}
+			input.form-control#cantidad(type="text", name="amount")
 		div.form-group
 			label(for="Usuario") Usuario
-			select.form-control#usuario(name="usuario")
-				each item in employees
-					option(value=item._id) #{item.name}
+			select.form-control#usuario(name="employee")
+				each employee in employees
+					option(value=employee._id) #{employee.name}
 		input.btn.btn-success#guardar(type="submit", value="Guardar")
