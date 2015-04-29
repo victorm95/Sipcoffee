@@ -1,0 +1,38 @@
+mixin generate_form(job, type, data)
+	form(method="POST")
+		div.form-group
+			label(for="employee") Empleado
+			select#employee.form-control(name="employee", required)
+				option(value="") Seleccione un empleado
+				each employee in data.employees
+					option(value=employee._id)= employee.name
+
+		div.form-group
+			label(for="time") Tiempo
+			div.input-group
+				input#time.form-control(type="number", name="time", required, value=job.time)
+				div.input-group-addon Horas
+
+		div.form-group
+			label(for="date") Fecha
+			input#date.form-control(type="date", name="date", required, value=job.date)
+
+		div.form-group
+			label(for="cost") Costo
+			input#cost.form-control(type="number", name="cost", required, value=job.cost)
+
+		if(type == "siembra" || type == "cosecha")
+			div.form-group
+				label(for="amount") Cantidad
+				input#amount.form-control(type="number", name="amount", required, value=job.amount)
+
+		if(type == "siembra")
+			div.form-group
+				label(for="seed") Semilla
+				select#seed.form-control(name="seed", required)
+					option(value="") Seleccione una semilla
+					each seed in data.seeds
+						option(value=seed._id)= seed.name
+
+		div.form-group
+			input.btn.btn-success(type="submit", value="Registrar")

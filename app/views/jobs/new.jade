@@ -1,0 +1,13 @@
+extends ../layout
+
+include form
+
+block content
+	section.container
+		header
+			h3 Registro de #{type}
+
+		hr
+
+		article.well.well-lg
+			+generate_form({}, type, data)

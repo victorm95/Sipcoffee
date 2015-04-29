@@ -43,9 +43,6 @@ routes.get('/blocks/:block_id/plots/new', function(req, res) {
 				for(i=0; i<plots.length; i++) plotsArea += plots[i].area;
 				plotsArea -= plot.area;
 
-				console.log('[Plots Area]: '+plotsArea);
-				console.log('[Block Area]: '+block.area);
-
 				if(plotsArea <= block.area) {
 					req.body.area = parseFloat(req.body.area);
 					db.plots.update({_id: plot._id}, {$set: req.body}, {}, function(error, num) {
@@ -67,7 +64,7 @@ routes.get('/blocks/:block_id/plots/new', function(req, res) {
 	});
 })
 
-.get('/plots/:id', function(req, res) {
+/*.get('/plots/:id', function(req, res) {
 	db.plots.findOne({_id: req.params.id}, function(error, plot) {
 		db.land.findOne({}, function(error, land) {
 			db.sowings.find({plot_id: plot._id}, function(error, sowings) {
@@ -85,6 +82,18 @@ routes.get('/blocks/:block_id/plots/new', function(req, res) {
 						jobs.push(job);
 					}
 					res.render('plots/show', {plot: plot, block: land.blocks[plot.block_id], jobs: jobs});
+				});
+			});
+		});
+	});
+})*/
+
+.get('/plots/:id', function(req, res) {
+	db.plots.findOne({_id: req.params.id}, function(error, plot) {
+		db.land.findOne({}, function(error, land) {
+			db.jobs.find({plot_id: plot._id}, function(error, jobs) {
+				db.employees.findOne({_id: req.body.employee}, function(error, employee) {
+					res.render('plots/show', {plot: plot, block: land.blocks[plot.block_id], jobs: jobs, employee: {}});
 				});
 			});
 		});
