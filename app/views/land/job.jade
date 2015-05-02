@@ -1,0 +1,48 @@
+extends ../layout
+
+block title
+	style.
+		label {
+			font-size: 1em !important;
+			margin: 2px !important;
+		}
+		input[type=checkbox] {
+			display: none;
+		}
+
+block content
+	section.container
+		header
+			h3 Registro de #{job}
+
+		hr
+
+		article
+			form(method="POST")
+				div#blocks.panel-group
+
+					each block in blocks
+						div.panel.panel-default
+							div.panel-heading
+								h4.panel-title
+									a(data-toggle="collapse", data-parent="#blocks" href="#block#{block._id}")= block.name
+							div.panel-collapse.collapse(id="block#{block._id}")
+								div.panel-body
+									table
+										tr
+											each plot in block.plots
+												td
+													label.label.label-default(for=plot._id)= plot.name
+													input(id=plot._id, name="plots", type="checkbox", value=plot._id)
+
+				input.btn.btn-default(type="submit", value="Registrar")
+
+
+		script.
+			var labels = document.querySelectorAll('label');
+			for(i=0; i<labels.length; i++) {
+				labels[i].onclick = function(e) {
+					className = e.target.className;
+					e.target.className = (className=="label label-default"?"label label-success":"label label-default");
+				};	
+			}

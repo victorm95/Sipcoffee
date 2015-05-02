@@ -75,6 +75,16 @@ routes.get('/blocks/new', function(req, res) {
 	});
 })
 
+.get('/blocks/:id/new/:type', function(req, res) {
+	db.plots.find({block_id: parseInt(req.params.id)}, function(error, data) {
+		res.render('blocks/job', {type: req.params.type, plots: data});
+	})
+})
+
+.post('/blocks/:id/new/:type', function(req, res) {
+	res.json(req.body);
+})
+
 ;
 
 module.exports = routes;

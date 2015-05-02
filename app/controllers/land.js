@@ -28,6 +28,24 @@ routes.get('/land', function(req, res) {
 	});
 })
 
+.get('/land/new/:job', function(req, res) {
+	db.plots.find().sort({block_id: 1}).exec(function(error, plots) {
+		db.land.findOne({}, function(error, land) {
+			var blocks = land.blocks;
+
+			for(i=0; i<plots.length; i++) {
+				if(!blocks[plots[i].block_id].plots) blocks[plots[i].block_id].plots = [];
+				blocks[plots[i].block_id].plots.push(plots[i])
+
+			}
+			res.render('land/job.jade', {blocks: blocks, job: req.params.job});
+		});
+	});
+})
+.post('/land/new/:job', function(req, res) {
+	res.json(req.body);
+})
+
 ;
 
 module.exports = routes;
