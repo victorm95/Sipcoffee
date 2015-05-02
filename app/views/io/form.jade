@@ -1,0 +1,17 @@
+mixin generate_form(io)
+	form(name="formIO", method="POST")
+		div.form-group
+			label(for="name") Nombre
+			input.form-control#name(type="text", name="name", value=io.name, maxlength="20", required, autofocus)
+		div.for-group
+			label(for="amount") Cantidad
+			input.form-control#amount(type="text", name="amount", value=io.amount, required, maxlength="4" pattern="[0-9]{1,4}", title="Ingrese un numero válido")
+			select.form-control(name="type")
+				option(value="Gramos") Gramos
+				option(value="Litros") Litros
+				option(value="Metros") Metros
+				option(value="Kilos") Kilos
+		div.form-group
+			label(for="cost") Costo
+			input.form-control#cost(type="text", name="cost", value=io.cost, required, maxlength="7", pattern="[0-9]{1,7}", title="Ingrese un numero válido")
+		input.btn.btn-success#guardar(type="submit", value="Guardar")

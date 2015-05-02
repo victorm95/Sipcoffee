@@ -1,0 +1,16 @@
+extends ../layout
+
+include form
+
+block content
+	section.container
+		header
+			h3 Registro de entradas y salidas
+			a.btn.btn-default(href="/io"): <span class="glyphicon glyphicon-arrow-left"></span> Atras 
+
+		hr
+
+		article.well.wel-lg
+			+generate_form(io)
+
+
