@@ -14,19 +14,6 @@ plots = { // Parcelas
 	active: 'boolean'
 };
 
-harvests = { // Cosechas
-	plot_id: 'ObjectId', // Relacion a Parcela
-	amount: 'float',
-	date: 'date'
-};
-
-sowings = { // Siembras
-	plot_id: 'ObjectId', // Relacion a Parcela
-	seed: 'ObjectId', // Relacion a Cafeto
-	amount: 'float',
-	date: 'date'
-};
-
 seeds = { // Cafetos
 	name: 'string',
 	fertilizerAmount: 'float',
@@ -52,6 +39,7 @@ io = { // Entrada y salidas
 	inventory_id: 'ObjectId'
 	amount: 'string',
 	date: 'date',
+	cost: 'float',
 	type: 'string'
 };
 
@@ -62,7 +50,7 @@ inventory = { // Inventario
 };
 
 job = { // Trabajos
-	user_id: 'ObjectId',
+	employee_id: 'ObjectId',
 	type: 'string', // Siembra, Cosecha, Fumigacion
 	time: 'int',
 	date: 'date', 
