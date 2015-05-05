@@ -1,0 +1,35 @@
+extends ../layout
+
+block title
+	title Lista de entradas y salidas
+
+block content
+	section.container
+		header
+			h3 Entradas y salidas
+		div
+			a.btn.btn-default(href="/io/new") Registrar
+
+		hr
+		article
+			table.table.table-striped
+				tr.info
+					th Nombre
+					th Cantidad
+					th Costo
+					th Tipo
+					th Fecha
+					th Editar
+					th Eliminar
+				if io
+					each item in io
+						tr
+							td= item.name
+							td= item.amount
+							td= item.cost
+							td= item.type
+							td= item.date
+							td
+								a.btn.btn-default(href="/io/"+item._id+"/edit"): span.glyphicon.glyphicon-pencil
+							td
+								a.btn.btn-default(href="/io/"+item._id+"/delete"): span.glyphicon.glyphicon-trash 
