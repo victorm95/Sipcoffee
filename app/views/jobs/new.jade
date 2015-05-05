@@ -2,6 +2,20 @@ extends ../layout
 
 include form
 
+block title
+	style.
+		label {
+			font-size: 1em !important;
+			/*margin: 2px !important;*/
+		}
+		input[type=checkbox] {
+			display: none;
+		}
+		.plot {
+			display: inline-block;
+			margin: 5px;
+		}
+
 block content
 	section.container
 		header
@@ -11,3 +25,13 @@ block content
 
 		article.well.well-lg
 			+generate_form({}, type, data)
+
+
+		script.
+			var labels = document.querySelectorAll('label');
+			for(i=0; i<labels.length; i++) {
+				labels[i].onclick = function(e) {
+					className = e.target.className;
+					e.target.className = (className=="label label-default"?"label label-success":"label label-default");
+				};	
+			}

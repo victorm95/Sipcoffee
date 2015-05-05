@@ -4,10 +4,14 @@ block title
 	style.
 		label {
 			font-size: 1em !important;
-			margin: 2px !important;
+			/*margin: 2px !important;*/
 		}
 		input[type=checkbox] {
 			display: none;
+		}
+		.plot {
+			display: inline-block;
+			margin: 5px;
 		}
 
 block content
@@ -28,14 +32,11 @@ block content
 									a(data-toggle="collapse", data-parent="#blocks" href="#block#{block._id}")= block.name
 							div.panel-collapse.collapse(id="block#{block._id}")
 								div.panel-body
-									table
-										tr
-											each plot in block.plots
-												td
-													label.label.label-default(for=plot._id)= plot.name
-													input(id=plot._id, name="plots", type="checkbox", value=plot._id)
-
-				input.btn.btn-default(type="submit", value="Registrar")
+									each plot in block.plots
+										div.plot
+											label.label.label-default(for=plot._id)= plot.name
+											input(id=plot._id, name="plots", type="checkbox", value=plot._id)
+				input.btn.btn-success(type="submit", value="Registrar")
 
 
 		script.
