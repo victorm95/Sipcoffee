@@ -15,7 +15,7 @@ mixin generate_form(job, type, data)
 									input(id=plot._id, name="plots", type="checkbox", value=plot._id)
 		div.form-group
 			label(for="employee") Empleado
-			select#employee.form-control(name="employee", required)
+			select#employee.form-control(name="employee_id", required)
 				option(value="") Seleccione un empleado
 				each employee in data.employees
 					option(value=employee._id)= employee.name
@@ -42,7 +42,7 @@ mixin generate_form(job, type, data)
 		if(type == "siembra")
 			div.form-group
 				label(for="seed") Semilla
-				select#seed.form-control(name="seed", required)
+				select#seed.form-control(name="seed_id", required)
 					option(value="") Seleccione una semilla
 					each seed in data.seeds
 						option(value=seed._id)= seed.name

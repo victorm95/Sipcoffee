@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+	section.container
+		header
+			h3 Historial de Trabajos
+			a.btn.btn-default(href="/land") <span class="glyphicon glyphicon-arrow-left"></span> Atras
+
+		hr
+
+		article
+			table.table.table-striped
+				tr.info
+					th Fecha
+					th Costo
+					th Trabajo
+					th Detalles
+				each job in jobs
+					tr
+						td= job.date
+						td= job.cost
+						td= job.type
+						td: a.btn.btn-default(href="/jobs/#{job._id}") <span class="glyphicon glyphicon-eye-open"></span>

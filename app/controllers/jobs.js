@@ -27,10 +27,25 @@ routes.get('/job/new/:type', function(req, res) {
 	var data = req.body;
 	data.type = req.params.type;
 
-	/*db.jobs.insert(data, function(error, data) {
-		res.redirect('/plots/'+req.params.plot_id);
-	});*/
-	res.json(data);
+	db.jobs.insert(data, function(error, data) {
+		res.redirect('/land');
+	});
+})
+
+.get('/job/history', function(req, res) {
+	db.jobs.find({}, function(error, data) {
+		res.render('jobs/history', {jobs: data});
+	});
+})
+
+.get('/jobs/:id', function(req, res) {
+	db.jobs.findOne({_id: req.params.id}, function(error, job) {
+		db.employees.findOne({_id: job.employee_id}, function(error, employee) {
+			db.seeds.findOne({_id: job.seed_id}, function(error, seed) {
+				res.render('jobs/show', {job: job, employee: employee, seed: seed});
+			});
+		});
+	});
 })
 
 ;
