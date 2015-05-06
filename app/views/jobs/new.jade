@@ -28,10 +28,13 @@ block content
 
 
 		script.
-			var labels = document.querySelectorAll('label');
+			var labels = document.querySelectorAll('.label');
 			for(i=0; i<labels.length; i++) {
 				labels[i].onclick = function(e) {
-					className = e.target.className;
-					e.target.className = (className=="label label-default"?"label label-success":"label label-default");
+					var element = e.target;
+					if(element.tagName == "SPAN") element = element.parentElement;
+
+					className = element.className;
+					element.className = (className=="label label-default"?"label label-success":"label label-default");
 				};	
 			}
