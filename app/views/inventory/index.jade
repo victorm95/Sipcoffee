@@ -1,0 +1,23 @@
+extends ../layout
+
+block title
+	title Inventario
+
+block content
+	section.container
+		header
+			h3 Inventario
+
+		hr
+		article
+			table.table.table-striped
+				tr.info
+					th Nombre
+					th Cantidad
+					th Unidad
+				if inventory
+					each item in inventory
+						tr
+							td= item.name
+							td= item.amount
+							td= item.measure

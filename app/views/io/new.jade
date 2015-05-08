@@ -5,12 +5,12 @@ include form
 block content
 	section.container
 		header
-			h3 Registro de entradas y salidas
+			h3 Registro #{(type=="in")?"entradas":"salidas"}
 			a.btn.btn-default(href="/io"): <span class="glyphicon glyphicon-arrow-left"></span> Atras 
 
 		hr
 
 		article.well.wel-lg
-			+generate_form(io)
+			+generate_form(io,type)
 
 

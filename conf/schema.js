@@ -45,8 +45,6 @@ io = { // Entrada y salidas
 
 inventory = { // Inventario
 	name: 'string',
-	amount: 'string',
-	unit: 'int' // Gramos, Litros
 };
 
 job = { // Trabajos
